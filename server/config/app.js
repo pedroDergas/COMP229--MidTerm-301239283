@@ -1,9 +1,15 @@
+/* created by Pedro da Silva Dergado
+File name: app.js
+Student’s Name: Pedro da Silva Dergado
+StudentID: 301239283
+Date: 10/28/2022
+*/
 import createError from 'http-errors';
 import express from 'express';
 
 // Fix for __dirname using ESM
-import path,{dirname} from 'path';
-import {fileURLToPath} from 'url';
+import path, { dirname } from 'path';
+import { fileURLToPath } from 'url';
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
 import logger from 'morgan';
@@ -18,7 +24,7 @@ import booksRouter from '../routes/books.js';
 const app = new express();
 
 // Complete the DB Configuration
-import {MongoURI, Secret} from '../config/config.js';
+import { MongoURI, Secret } from '../config/config.js';
 import cookieParser from 'cookie-parser';
 
 mongoose.connect(MongoURI);
@@ -35,7 +41,7 @@ app.set('view engine', 'ejs');
 
 app.use(logger('dev'));
 app.use(express.json());
-app.use(express.urlencoded({extended: false}));
+app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, '../../client')));
 app.use(express.static(path.join(__dirname, '../../node_modules')));
@@ -48,19 +54,19 @@ app.use('/', booksRouter);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
-    next(createError(404));
+  next(createError(404));
 });
 
 // error handler
 app.use((err, req, res, next) => {
 
-     // set locals, only providing error in development
-    res.locals.message = err.message;
-    res.locals.error = req.app.get('env') === 'development' ? err : {};
+  // set locals, only providing error in development
+  res.locals.message = err.message;
+  res.locals.error = req.app.get('env') === 'development' ? err : {};
 
-      // render the error page
-    res.status(err.status || 500);
-    res.render('error');
+  // render the error page
+  res.status(err.status || 500);
+  res.render('error');
 });
 
 export default app;

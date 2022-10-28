@@ -1,3 +1,9 @@
+/* created by Pedro da Silva Dergado
+File name: books.js (controller)
+Student’s Name: Pedro da Silva Dergado
+StudentID: 301239283
+Date: 10/28/2022
+*/
 // define the book model
 import booksModel from '../models/books.js';
 
@@ -17,7 +23,7 @@ export function displayBookList(req, res, next) {
 export function displayAddPage(req, res, next) {
 
     /*****************
-    * ADD CODE HERE *
+    * CODE ADDED HERE  *
     *****************/
     res.render('index', { title: 'Add Books', page: 'books/edit', books: {} });
 }
@@ -26,7 +32,7 @@ export function displayAddPage(req, res, next) {
 export function processAddPage(req, res, next) {
 
     /*****************
-     * ADD CODE HERE *
+     * CODE ADDED HERE  *
      *****************/
     let newBooks = booksModel({
         name: req.body.name,
@@ -52,7 +58,7 @@ export function processAddPage(req, res, next) {
 export function displayEditPage(req, res, next) {
 
     /*****************
-     * ADD CODE HERE *
+     * CODE ADDED HERE  *
      *****************/
     let id = req.params.id;
 
@@ -70,7 +76,7 @@ export function displayEditPage(req, res, next) {
 // POST - process the information passed from the details form and update the document
 export function processEditPage(req, res, next) {
     /*****************
-    * ADD CODE HERE *
+    * CODE ADDED HERE *
     *****************/
     let id = req.params.id;
 
@@ -96,7 +102,7 @@ export function processEditPage(req, res, next) {
 // GET - process the delete by user id
 export function processDelete(req, res, next) {
     /*****************
-  * ADD CODE HERE *
+  * CODE ADDED HERE  *
   *****************/
     let id = req.params.id;
 

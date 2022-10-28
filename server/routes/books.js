@@ -1,3 +1,9 @@
+/* created by Pedro da Silva Dergado
+File name: books.js (routes)
+Student’s Name: Pedro da Silva Dergado
+StudentID: 301239283
+Date: 10/28/2022
+*/
 // modules required for routing
 import { Router } from "express";
 
